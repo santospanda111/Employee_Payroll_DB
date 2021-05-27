@@ -1,1 +1,38 @@
 echo "Welcome to Employee PayRoll service"
+#UC1 : Ability to create a payroll service database
+mysql> CREATE DATABASE payroll_service;
+Query OK, 1 row affected (0.18 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| data1              |
+| god                |
+| information_schema |
+| john               |
+| love               |
+| mysql              |
+| payroll_service    |
+| performance_schema |
+| rahul              |
+| sakila             |
+| sant               |
+| santo              |
+| saumya             |
+| sys                |
+| vivaan             |
+| world              |
+| wow                |
++--------------------+
+17 rows in set (0.08 sec)
+
+mysql> use payroll_service;
+Database changed
+mysql> select database();
++-----------------+
+| database()      |
++-----------------+
+| payroll_service |
++-----------------+
+1 row in set (0.00 sec)
