@@ -173,3 +173,46 @@ mysql> SELECT gender, COUNT(name) FROM employee_payroll GROUP BY GENDER;
 | F      |           1 |
 +--------+-------------+
 2 rows in set (0.02 sec)
+
+---------------------------------------UC8------------Alter data---------------------------------------
+
+mysql> ALTER TABLE employee_payroll ADD phone_number VARCHAR(250) AFTER name;
+Query OK, 0 rows affected (2.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD address VARCHAR(250) AFTER phone_number;
+Query OK, 0 rows affected (1.29 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ADD department VARCHAR(250) AFTER address;
+Query OK, 0 rows affected (0.77 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee_payroll ALTER department SET DEFAULT 'TBD';
+Query OK, 0 rows affected (0.14 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe employee_PAYROLL;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name         | varchar(150) | NO   |     | NULL    |                |
+| phone_number | varchar(250) | YES  |     | NULL    |                |
+| address      | varchar(250) | YES  |     | NULL    |                |
+| department   | varchar(250) | YES  |     | TBD     |                |
+| gender       | char(1)      | YES  |     | NULL    |                |
+| salary       | double       | NO   |     | NULL    |                |
+| start        | date         | NO   |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+8 rows in set (0.03 sec)
+
+mysql> SELECT * FROM employee_payroll;
++----+------+--------------+---------+------------+--------+--------+------------+
+| id | name | phone_number | address | department | gender | salary | start      |
++----+------+--------------+---------+------------+--------+--------+------------+
+|  1 | Bill | NULL         | NULL    | NULL       | M      |  100000 | 2021-01-03 |
+|  2 | Charlie | NULL         | NULL    | NULL       | M      |  200000 | 2019-01-05 |
+|  3 | Terisa | NULL         | NULL    | NULL       | F     |  300000 | 2018-02-06 |
++----+------+--------------+---------+------------+--------+--------+------------+
+3 rows in set (0.02 sec)
